@@ -35,6 +35,27 @@ def check_login(username, password):
             cursor.close()
             conn.close()
 
+def check_login_member(username, password):
+    conn = connect_db()
+    if not conn:
+        return None
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        sql = "SELECT * FROM members WHERE username = %s AND password = %s"
+        
+        cursor.execute(sql, (username, password))
+        member = cursor.fetchone()
+        return member
+    except Error as e:
+        print(f"Lỗi query member: {e}")
+        return None
+    finally:
+        if conn.is_connected():
+            cursor.close()
+            conn.close()
+
 def get_connection():
     """Hàm chung để kết nối CSDL"""
     try:

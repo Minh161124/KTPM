@@ -9,7 +9,7 @@ COLOR_TEXT_LIGHT = "#FFFFFF" # Màu chữ trắng
 COLOR_PLACEHOLDER = "#AAAAAA" # Màu chữ placeholder (xám nhạt)
 COLOR_GREEN = "#4CAF50" # Màu xanh lá cho nút Save/Add
 COLOR_RED = "#F44336"   # Màu đỏ cho nút Cancel
-COLOR_YELLOW = "#FFEB3B" # Màu vàng cho checkbox "Đổi MK"
+COLOR_YELLOW = "#FFEB3B" # Màu  checkbox "Đổi MK"
 
 font_default = ("Arial", 10)
 font_bold = ("Arial", 10, "bold")

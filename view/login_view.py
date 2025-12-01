@@ -4,14 +4,12 @@ from tkinter import font as tkFont
 class LoginView(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Đăng nhập hệ thống")
-        self.geometry("800x650")
+        self.title("Hệ thống Đăng nhập")
+        self.geometry("800x700") # Tăng chiều cao một chút
         self.configure(bg="black")
         self.resizable(False, False)
         
-        # Biến lưu trữ controller để gọi lại
         self.controller = None
-
         self._setup_ui()
 
     def set_controller(self, controller):
@@ -20,16 +18,31 @@ class LoginView(tk.Tk):
     def _setup_ui(self):
         label_font = tkFont.Font(family="Arial", size=10, weight="bold")
         entry_font = tkFont.Font(family="Arial", size=12)
-        logon_font = tkFont.Font(family="Arial", size=70, weight="bold")
+        logon_font = tkFont.Font(family="Arial", size=60, weight="bold") # Giảm size xíu cho vừa
         button_font = tkFont.Font(family="Arial", size=14, weight="bold")
+        radio_font = tkFont.Font(family="Arial", size=11, weight="bold")
 
-        tk.Label(self, text="LOGIN", font=logon_font, fg="#E63950", bg="black").pack(pady=(160, 50))
+        tk.Label(self, text="LOGIN", font=logon_font, fg="#E63950", bg="black").pack(pady=(80, 30))
 
         form_frame = tk.Frame(self, bg="black")
         form_frame.pack(pady=0, padx=200)
 
-        # Email
-        tk.Label(form_frame, text="EMAIL / PHONE NUMBER:", font=label_font,
+        self.role_var = tk.StringVar(value="employee")
+        
+        role_frame = tk.Frame(form_frame, bg="black")
+        role_frame.pack(fill="x", pady=(0, 20))
+        
+        tk.Label(role_frame, text="Đăng nhập với tư cách:", font=label_font, fg="gray", bg="black").pack(anchor="w")
+        
+        r1 = tk.Radiobutton(role_frame, text="Nhân viên", variable=self.role_var, value="employee",
+                            font=radio_font, fg="white", bg="black", selectcolor="#333", activebackground="black", activeforeground="white")
+        r1.pack(side="left", padx=(0, 20))
+        
+        r2 = tk.Radiobutton(role_frame, text="Hội viên (Khách)", variable=self.role_var, value="customer",
+                            font=radio_font, fg="white", bg="black", selectcolor="#333", activebackground="black", activeforeground="white")
+        r2.pack(side="left")
+
+        tk.Label(form_frame, text="USERNAME / EMAIL:", font=label_font,
                  fg="white", bg="black", anchor="w").pack(fill="x", pady=(0, 5))
 
         self.email_entry = tk.Entry(form_frame, font=entry_font, bg="#111", fg="white",
@@ -60,11 +73,11 @@ class LoginView(tk.Tk):
                   pady=5, command=self._on_login_click
                   ).pack(pady=30, ipadx=40, ipady=4)
         
-        # Bind phím Enter
         self.bind('<Return>', lambda event: self._on_login_click())
 
     def _on_login_click(self):
         if self.controller:
             email = self.email_entry.get()
             password = self.password_entry.get()
-            self.controller.handle_login(email, password)
+            role = self.role_var.get() 
+            self.controller.handle_login(email, password, role)
