@@ -1,0 +1,3 @@
+Tue Nov 18 14:53:36 2025 UTC - src\common\steam\client_api.cpp (666) : ClientAPI_Init: Cannot create pipe.  Steam not running?
+
+Tue Nov 18 14:53:36 2025 UTC - SteamAPI_Init() failed.
