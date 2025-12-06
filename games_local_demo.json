@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "PUBG",
+    "category": "FPS",
+    "path": "images/pubgpc.png",
+    "image": "images/pubgpc.png",
+    "version": "Ver 2.3",
+    "versions": [
+      "Ver 2.3",
+      "Ver 2.2"
+    ],
+    "blocked": 0
+  },
+  {
+    "id": 2,
+    "name": "Valorant",
+    "category": "FPS",
+    "path": "images/valorant.png",
+    "image": "images/valorant.png",
+    "version": "Ver 2.1",
+    "versions": [
+      "Ver 2.1",
+      "Ver 2.0"
+    ],
+    "blocked": 0
+  },
+  {
+    "id": 3,
+    "name": "League of Legends",
+    "category": "MOBA",
+    "path": "images/lol.png",
+    "image": "images/lol.png",
+    "version": "Ver 11.9",
+    "versions": [
+      "Ver 11.9",
+      "Ver 11.8"
+    ],
+    "blocked": 0
+  },
+  {
+    "name": "steam",
+    "category": "Action",
+    "version": "12.12",
+    "versions": [
+      "steam"
+    ],
+    "path": "C:/net pj/images/steam.png",
+    "blocked": 0,
+    "id": 4
+  }
+]

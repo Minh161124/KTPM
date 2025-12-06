@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "name": "League of Legends",
+    "category": "MOBA",
+    "version": "13.10",
+    "path": "C:\\Riot Games\\League of Legends\\LeagueClient.exe",
+    "image": "lol.png"
+  },
+  {
+    "name": "PUBG PC",
+    "category": "Battle Royale",
+    "version": "Latest",
+    "path": "",
+    "image": "C:/net pj/images/pubgpc.png",
+    "blocked": 0,
+    "id": 3
+  },
+  {
+    "name": "FIFA Online 4",
+    "category": "Sports",
+    "version": "Latest",
+    "path": "",
+    "image": "C:/net pj (1)/images/logo.png",
+    "blocked": 0,
+    "id": 4
+  },
+  {
+    "id": 5,
+    "name": "CS:GO 2",
+    "category": "FPS",
+    "version": "Source 2",
+    "path": "",
+    "image": "csgo.png"
+  },
+  {
+    "name": "Valoriant",
+    "category": "MOBA",
+    "version": "2.3",
+    "path": "",
+    "image": "C:/net pj/images/valorant.png",
+    "blocked": 0,
+    "id": 6
+  },
+  {
+    "name": "Steam",
+    "category": "Khác",
+    "version": "2.3",
+    "path": "D:/steam/streaming_client.exe",
+    "image": "C:/net pj (1)/images/steam.png",
+    "blocked": 0,
+    "id": 7
+  }
+]
