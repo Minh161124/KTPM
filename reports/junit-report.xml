@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.830" timestamp="2025-12-04T03:00:00.147830+07:00" hostname="DESKTOP-UOOD2BG"><testcase classname="test_main.TestMainModuleAll" name="test_export_multi_sheets" time="0.047" /><testcase classname="test_main.TestMainModuleAll" name="test_export_users_to_excel" time="0.035" /><testcase classname="test_main.TestMainModuleAll" name="test_get_connection_failure" time="0.001" /><testcase classname="test_main.TestMainModuleAll" name="test_get_connection_success" time="0.001" /><testcase classname="test_main.TestMainModuleAll" name="test_handle_login_success_and_app_loop" time="0.001"><failure message="RuntimeError: Too early to use font: no default root window">self = &lt;test_main.TestMainModuleAll testMethod=test_handle_login_success_and_app_loop&gt;, mock_info = &lt;MagicMock name='showinfo' id='1981779467568'&gt;
+mock_connect = &lt;MagicMock name='connect' id='1981779466896'&gt;
+
+    @patch("main.mysql.connector.connect")
+    @patch("main.messagebox.showinfo")
+    def test_handle_login_success_and_app_loop(self, mock_info, mock_connect):
+        # prepare DB cursor with user
+        fake_cursor = MagicMock()
+        fake_cursor.fetchone.return_value = {"email":"a@x.com","role":"admin","password":"p"}
+        fake_conn = MagicMock()
+        fake_conn.cursor.return_value = fake_cursor
+        mock_connect.return_value = fake_conn
+    
+        # Create login window (DummyTk used)
+&gt;       app = main.LoginWindow()
+              ^^^^^^^^^^^^^^^^^^
+
+test_main.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+main.py:75: in __init__
+    self._setup_ui()
+main.py:78: in _setup_ui
+    label_font = tkFont.Font(family="Arial", size=10, weight="bold")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\huybo\AppData\Local\Programs\Python\Python313\Lib\tkinter\font.py:72: in __init__
+    root = tkinter._get_default_root('use font')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+what = 'use font'
+
+    def _get_default_root(what=None):
+        if not _support_default_root:
+            raise RuntimeError("No master specified and tkinter is "
+                               "configured to not support default root")
+        if _default_root is None:
+            if what:
+&gt;               raise RuntimeError(f"Too early to {what}: no default root window")
+E               RuntimeError: Too early to use font: no default root window
+
+C:\Users\huybo\AppData\Local\Programs\Python\Python313\Lib\tkinter\__init__.py:323: RuntimeError</failure></testcase></testsuite></testsuites>
